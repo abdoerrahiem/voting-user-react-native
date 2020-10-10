@@ -34,6 +34,7 @@ export const colors = {
   white: '#fff',
   grey: '#a6a6a6',
   red: '#fc264d',
+  green: '#335d2d',
 }
 
 export const fonts = {

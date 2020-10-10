@@ -65,11 +65,7 @@ const Home = ({navigation, userReducer, getCurrentUser}) => {
       <View style={styles.home}>
         <View>
           <View style={{marginVertical: 5}}>
-            {userData ? (
-              <Alert success text={`Welcome back, ${userData.name}`} />
-            ) : (
-              <Alert success text={`Welcome, Stranger`} />
-            )}
+            {userData && <Alert success text={`Hai, ${userData.name}.`} />}
           </View>
           <View style={{marginVertical: 10}}>
             <Text style={styles.h2}>Selamat Datang</Text>

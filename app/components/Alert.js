@@ -28,7 +28,7 @@ const Alert = ({text, error, success}) => {
       <View
         style={[
           styles.alert,
-          {backgroundColor: error ? colors.red : success ? colors.blue : ''},
+          {backgroundColor: error ? colors.red : success ? colors.green : ''},
         ]}>
         <Text style={styles.text}>{text}</Text>
         <TouchableOpacity

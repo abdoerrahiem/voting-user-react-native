@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
     width: '100%',
+    marginVertical: 10,
   },
   voteDetailsText: {
     textAlign: 'center',

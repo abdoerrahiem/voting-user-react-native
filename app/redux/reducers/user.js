@@ -3,6 +3,7 @@ import {setToken, removeToken} from '../storage'
 
 const initialState = {
   userData: null,
+  usersData: [],
   isAuth: false,
   loading: false,
   error: null,
@@ -25,6 +26,27 @@ const user = (state = initialState, action) => {
         userData: payload.data,
         isAuth: true,
         loading: false,
+      }
+    case types.GET_USERS:
+      return {
+        ...state,
+        loading: false,
+        usersCount: payload.count,
+        usersData: payload.data,
+      }
+    case types.GET_VOTED_USERS:
+      return {
+        ...state,
+        loading: false,
+        votedUsersCount: payload.count,
+        // votedUsersData: payload.data,
+      }
+    case types.GET_UNVOTED_USERS:
+      return {
+        ...state,
+        loading: false,
+        unVotedUsersCount: payload.count,
+        // unVotedUsersData: payload.data,
       }
     case types.LOADING_USER:
       return {

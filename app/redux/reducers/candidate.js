@@ -15,6 +15,7 @@ const candidate = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        candidatesCount: payload.count,
         candidatesData: payload.data,
       }
     case types.GET_CANDIDATES:
