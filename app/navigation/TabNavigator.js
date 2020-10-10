@@ -15,25 +15,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.fontBold,
     textTransform: 'uppercase',
     letterSpacing: 1,
-    fontSize: 9,
-  },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-    marginRight: 10,
-  },
-  adminProfile: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textAdmin: {
-    fontFamily: fonts.fontBold,
-    color: colors.orange,
-    textAlign: 'center',
-    marginBottom: 10,
+    fontSize: 10,
   },
 })
 

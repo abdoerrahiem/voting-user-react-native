@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import {createStackNavigator} from '@react-navigation/stack'
 import TabNavigator from './TabNavigator'
 import NomineeProfile from '../screens/NomineeProfile'
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.fontBold,
     textTransform: 'uppercase',
     letterSpacing: 2.5,
-    fontSize: 20,
+    fontSize: 25,
     color: colors.white,
   },
 })
@@ -26,14 +26,17 @@ const UserNavigator = ({navigation}) => (
       options={{
         headerStyle: {
           backgroundColor: colors.blue,
-          height: 45,
         },
-        headerTitle: () => <Text style={styles.text}>E-Voting</Text>,
+        headerTitle: () => (
+          <View>
+            <Text style={styles.text}>E-Voting</Text>
+          </View>
+        ),
         headerLeft: () => (
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Icon
               name="bars"
-              size={25}
+              size={20}
               color={colors.white}
               style={{marginLeft: 10}}
             />
