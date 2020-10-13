@@ -8,6 +8,7 @@ import {
   RefreshControl,
 } from 'react-native'
 import Button from '../components/Button'
+import Header from '../components/Header'
 import {colors, fonts} from '../utils'
 import {connect} from 'react-redux'
 import Alert from '../components/Alert'
@@ -57,46 +58,49 @@ const Home = ({navigation, userReducer, getCurrentUser}) => {
   }, [])
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl refreshing={loading} onRefresh={getCurrentUser} />
-      }>
-      <View style={styles.home}>
-        <View>
-          <View style={{marginVertical: 5}}>
-            {userData && <Alert success text={`Hai, ${userData.name}.`} />}
-          </View>
-          <View style={{marginVertical: 10}}>
-            <Text style={styles.h2}>Selamat Datang</Text>
-            <Text style={styles.h2}>di Aplikasi Voting Berbasis Online</Text>
-          </View>
-          <View style={{marginBottom: 20}}>
-            <Image
-              source={require('../images/evoting.png')}
-              style={styles.image}
-            />
-          </View>
-          <View style={{marginBottom: 20}}>
-            <Text style={styles.h4}>
-              Pilih Nominasi Terbaik Pilihanmu Dimana Saja, Tanpa Ribet
-            </Text>
-          </View>
-          <View style={styles.buttons}>
-            <Button
-              title="Vote Now"
-              backgroundColor={colors.orange}
-              onPress={() => navigation.navigate('Voting')}
-            />
-            <Button
-              title="Review Nominees"
-              backgroundColor={colors.yellow}
-              onPress={() => navigation.navigate('Nominees')}
-            />
+    <>
+      <Header text="E-Voting" />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={getCurrentUser} />
+        }>
+        <View style={styles.home}>
+          <View>
+            <View style={{marginVertical: 5}}>
+              {userData && <Alert success text={`Hai, ${userData.name}.`} />}
+            </View>
+            <View style={{marginVertical: 10}}>
+              <Text style={styles.h2}>Selamat Datang</Text>
+              <Text style={styles.h2}>di Aplikasi Voting Berbasis Online</Text>
+            </View>
+            <View style={{marginBottom: 20}}>
+              <Image
+                source={require('../images/evoting.png')}
+                style={styles.image}
+              />
+            </View>
+            <View style={{marginBottom: 20}}>
+              <Text style={styles.h4}>
+                Pilih Nominasi Terbaik Pilihanmu Dimana Saja, Tanpa Ribet
+              </Text>
+            </View>
+            <View style={styles.buttons}>
+              <Button
+                title="Vote Now"
+                backgroundColor={colors.orange}
+                onPress={() => navigation.navigate('Voting')}
+              />
+              <Button
+                title="Review Nominees"
+                backgroundColor={colors.yellow}
+                onPress={() => navigation.navigate('Nominees')}
+              />
+            </View>
           </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   )
 }
 

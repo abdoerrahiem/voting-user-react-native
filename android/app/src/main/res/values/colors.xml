@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="splashscreen_bg">#ebf3ff</color>
-    <color name="app_bg">#ebf3ff</color>
+    <color name="primary_background">#4c6ef5</color>
     <color name="status_bar_color">#4c6ef5</color>
 </resources>

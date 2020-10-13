@@ -15,7 +15,8 @@ const App = () => {
       .then(() => {
         store.dispatch(getCurrentUser())
       })
-      .then(() => SplashScreen.hide())
+
+    SplashScreen.hide()
   }, [])
 
   return (

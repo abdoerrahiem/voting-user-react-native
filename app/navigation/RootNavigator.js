@@ -5,3 +5,6 @@ export const navigationRef = React.createRef()
 
 export const closeDrawer = () =>
   navigationRef.current?.dispatch(DrawerActions.closeDrawer())
+
+export const openDrawer = () =>
+  navigationRef.current?.dispatch(DrawerActions.openDrawer())

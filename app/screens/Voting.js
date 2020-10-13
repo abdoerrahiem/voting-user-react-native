@@ -4,6 +4,7 @@ import Card from '../components/Card'
 import Modal from '../components/Modal'
 import {connect} from 'react-redux'
 import {getCandidates} from '../redux/actions/candidate'
+import Header from '../components/Header'
 
 const styles = StyleSheet.create({
   voting: {
@@ -23,34 +24,37 @@ const Voting = ({getCandidates, candidateReducer}) => {
   }, [])
 
   return (
-    <View style={styles.voting}>
-      <Modal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        candidateId={candidateId}
-      />
-      <View>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          refreshControl={
-            <RefreshControl refreshing={loading} onRefresh={getCandidates} />
-          }>
-          {candidatesData.length > 0 &&
-            candidatesData.map((data, index) => (
-              <Card
-                key={data._id}
-                voting
-                data={data}
-                index={index}
-                onPress={() => {
-                  setShowModal(true)
-                  setCandidateId(data._id)
-                }}
-              />
-            ))}
-        </ScrollView>
+    <>
+      <Header text="Vote" />
+      <View style={styles.voting}>
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          candidateId={candidateId}
+        />
+        <View>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            refreshControl={
+              <RefreshControl refreshing={loading} onRefresh={getCandidates} />
+            }>
+            {candidatesData.length > 0 &&
+              candidatesData.map((data, index) => (
+                <Card
+                  key={data._id}
+                  voting
+                  data={data}
+                  index={index}
+                  onPress={() => {
+                    setShowModal(true)
+                    setCandidateId(data._id)
+                  }}
+                />
+              ))}
+          </ScrollView>
+        </View>
       </View>
-    </View>
+    </>
   )
 }
 

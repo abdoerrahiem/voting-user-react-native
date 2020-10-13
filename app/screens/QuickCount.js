@@ -4,6 +4,7 @@ import Chart from '../components/Chart'
 import {chartColors, colors, fonts} from '../utils'
 import {connect} from 'react-redux'
 import {getCandidates} from '../redux/actions/candidate'
+import Header from '../components/Header'
 
 const styles = StyleSheet.create({
   count: {
@@ -37,16 +38,6 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.secondBlue,
     paddingBottom: 5,
     color: colors.blue,
-  },
-  h1: {
-    textAlign: 'center',
-    marginTop: 5,
-    fontFamily: fonts.fontBold,
-    fontSize: 24,
-    color: colors.blue,
-    borderBottomWidth: 0.5,
-    borderBottomColor: colors.white,
-    paddingBottom: 5,
   },
   quickCount: {
     alignItems: 'center',
@@ -82,37 +73,40 @@ const QuickCount = ({getCandidates, candidateReducer}) => {
   }, [candidatesData])
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl refreshing={loading} onRefresh={getCandidates} />
-      }>
-      {candidatesData.length > 0 && (
-        <View>
-          <Text style={styles.h1}>Quick Count</Text>
-          <Chart data={newData} />
-          <View style={styles.voteDetails}>
-            <Text style={styles.voteDetailsText}>Vote Details</Text>
-            <View style={styles.count}>
-              <View>
-                {candidatesData.map((candidate, index) => (
-                  <Text style={styles.countTitle} key={index}>
-                    {candidate.nameOfChairman} & {candidate.nameOfViceChairman}
-                  </Text>
-                ))}
-              </View>
-              <View>
-                {candidatesData.map((candidate, index) => (
-                  <Text style={styles.countValue} key={index}>
-                    : {candidate.totalSuara} Suara
-                  </Text>
-                ))}
+    <>
+      <Header text="Quick Count" />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={getCandidates} />
+        }>
+        {candidatesData.length > 0 && (
+          <View>
+            <Chart data={newData} />
+            <View style={styles.voteDetails}>
+              <Text style={styles.voteDetailsText}>Vote Details</Text>
+              <View style={styles.count}>
+                <View>
+                  {candidatesData.map((candidate, index) => (
+                    <Text style={styles.countTitle} key={index}>
+                      {candidate.nameOfChairman} &{' '}
+                      {candidate.nameOfViceChairman}
+                    </Text>
+                  ))}
+                </View>
+                <View>
+                  {candidatesData.map((candidate, index) => (
+                    <Text style={styles.countValue} key={index}>
+                      : {candidate.totalSuara} Suara
+                    </Text>
+                  ))}
+                </View>
               </View>
             </View>
           </View>
-        </View>
-      )}
-    </ScrollView>
+        )}
+      </ScrollView>
+    </>
   )
 }
 

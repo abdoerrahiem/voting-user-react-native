@@ -48,7 +48,7 @@ const TabNavigator = () => {
         name="Nominees"
         component={Nominees}
         options={{
-          tabBarLabel: <Text style={styles.text}>Nominees</Text>,
+          tabBarLabel: <Text style={styles.text}>Nominasi</Text>,
           tabBarIcon: ({color}) => (
             <Icon name="user-friends" color={color} size={20} />
           ),
@@ -58,7 +58,7 @@ const TabNavigator = () => {
         name="Voting"
         component={Voting}
         options={{
-          tabBarLabel: <Text style={styles.text}>Voting</Text>,
+          tabBarLabel: <Text style={styles.text}>Vote</Text>,
           tabBarIcon: ({color}) => (
             <Icon name="vote-yea" color={color} size={20} />
           ),

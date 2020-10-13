@@ -3,6 +3,7 @@ import {View, StyleSheet, ScrollView, RefreshControl} from 'react-native'
 import Card from '../components/Card'
 import {connect} from 'react-redux'
 import {getCandidates} from '../redux/actions/candidate'
+import Header from '../components/Header'
 
 const styles = StyleSheet.create({
   nominees: {
@@ -20,26 +21,29 @@ const Nominees = ({navigation, getCandidates, candidateReducer}) => {
   }, [])
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl refreshing={loading} onRefresh={getCandidates} />
-      }>
-      <View style={styles.nominees}>
-        <View>
-          {candidatesData.length > 0 &&
-            candidatesData.map((data, index) => (
-              <Card
-                key={data._id}
-                nominees
-                data={data}
-                index={index}
-                onPress={() => navigation.navigate('NomineeProfile', {data})}
-              />
-            ))}
+    <>
+      <Header text="Nominasi" />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={getCandidates} />
+        }>
+        <View style={styles.nominees}>
+          <View>
+            {candidatesData.length > 0 &&
+              candidatesData.map((data, index) => (
+                <Card
+                  key={data._id}
+                  nominees
+                  data={data}
+                  index={index}
+                  onPress={() => navigation.navigate('NomineeProfile', {data})}
+                />
+              ))}
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   )
 }
 
